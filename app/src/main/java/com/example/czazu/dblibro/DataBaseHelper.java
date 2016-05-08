@@ -1,6 +1,7 @@
 package com.example.czazu.dblibro;
 
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -11,7 +12,7 @@ public class DataBaseHelper {
 
     private Context miContext = null;
     private DataBaseHelperInternal miDBHelper = null;
-    private DataBaseHelper miDB = null;
+    private SQLiteDatabase miDB = null;
     private static final String DATABASE_NAME = "TODOLIST";
     private static final int DATABASE_VERSION = 3;
 
@@ -37,21 +38,42 @@ public class DataBaseHelper {
 
     }
 
+    public DataBaseHelper open () throws SQLException{
+        miDBHelper = new DataBaseHelperInternal(miContext);
+        miDB = miDBHelper.getWritableDatabase();
+        return this;
+    }
+
+    public void close () {
+        miDBHelper.close();
+    }
+
     private class DataBaseHelperInternal extends SQLiteOpenHelper {
 
-        public DataBaseHelperInternal(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-            super(context, name, factory, version);
+        public DataBaseHelperInternal(Context context) {
+            super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
 
         @Override
         public void onCreate(SQLiteDatabase db) {
-
+            createTables(db);
         }
 
         @Override
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            deleteTables(db);
+            createTables(db);
+        }
+
+        private void createTables (SQLiteDatabase dB) {
+            dB.execSQL(CREATE_TODOLIST);
 
         }
+
+        private void deleteTables (SQLiteDatabase dB){
+            dB.execSQL("DROP TABLE IF EXIST "+DATABASE_TABLE_TODOLIST);
+        }
+
     }
 
 }

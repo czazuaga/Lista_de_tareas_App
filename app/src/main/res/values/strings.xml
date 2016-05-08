@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Lista de tareas</string>
-    <string name="pending">pendiente</string>
-    <string name="NoElements">vacío</string>
-
+    <string name="pending">Pendiente</string>
+    <string name="NoElements">Vacío</string>
+    <string name="NewItem">Nueva Tarea</string>
 </resources>

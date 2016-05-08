@@ -1,6 +1,8 @@
 package com.example.czazu.dblibro;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -47,6 +49,23 @@ public class DataBaseHelper {
     public void close () {
         miDBHelper.close();
     }
+
+    public Cursor getItems (){
+        return miDB.query(DATABASE_TABLE_TODOLIST,new String[] {SL_ID, SL_ITEM, SL_PLACE,
+                SL_IMPORTANCE},null,null,null,null,SL_IMPORTANCE);
+
+    }
+
+    public long insertItem(String item,String place,String description,int importance){
+        ContentValues initial = new ContentValues();
+        initial.put(SL_IMPORTANCE,importance);
+        initial.put(SL_ITEM,item);
+        initial.put(SL_PLACE,place);
+        initial.put(SL_DESCRIPTION,description);
+        return miDB.insert(DATABASE_TABLE_TODOLIST,null,initial);
+    }
+
+    //Clase interna
 
     private class DataBaseHelperInternal extends SQLiteOpenHelper {
 

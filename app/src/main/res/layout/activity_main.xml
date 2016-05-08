@@ -17,7 +17,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/NoElements"
+        android:text="@string/no_elements"
         android:id="@+id/empty"/>
     <ListView
         android:layout_width="match_parent"

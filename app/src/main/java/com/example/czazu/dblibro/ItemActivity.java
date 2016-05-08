@@ -18,7 +18,7 @@ TextView mPlace = null;
 TextView mDescription = null;
 TextView mImportance = null;
 
-    //input indentifier
+    //input indentificator
     Integer mRowId=null;
 
     @Override

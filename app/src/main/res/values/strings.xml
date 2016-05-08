@@ -1,7 +1,12 @@
 <resources>
     <string name="app_name">Lista de tareas</string>
     <string name="pending">Pendiente</string>
-    <string name="NoElements">Vacío</string>
-    <string name="NewItem">Nueva tarea</string>
+    <string name="no_elements">Vacío</string>
+    <string name="new_item">Nueva tarea</string>
     <string name="data_error">Datos incorrectos</string>
+    <string name="save">Guardar</string>
+    <string name="element">Elemento</string>
+    <string name="place">Lugar</string>
+    <string name="importance">Importancia</string>
+    <string name="description">Descripción</string>
 </resources>

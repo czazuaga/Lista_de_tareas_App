@@ -34,7 +34,7 @@ public class DataBaseHelper {
 
     public DataBaseHelper (Context context){
         this.miContext=context;
-        
+
     }
 
     private class DataBaseHelperInternal extends SQLiteOpenHelper {

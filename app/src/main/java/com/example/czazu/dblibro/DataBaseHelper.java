@@ -21,11 +21,11 @@ public class DataBaseHelper {
     //Tabla y campos
 
     private static final String DATABASE_TABLE_TODOLIST = "todoList";
-    private static final String SL_ID = "_id";
-    private static final String SL_ITEM = "task";
-    private static final String SL_PLACE = "place";
-    private static final String SL_IMPORTANCE = "importance";
-    private static final String SL_DESCRIPTION = "description";
+    public static final String SL_ID = "_id";
+    public static final String SL_ITEM = "task";
+    public static final String SL_PLACE = "place";
+    public static final String SL_IMPORTANCE = "importance";
+    public static final String SL_DESCRIPTION = "description";
 
     //Sql de creación de la tabla
 
